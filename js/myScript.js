@@ -1,9 +1,31 @@
 /**
  * Created by skidvis on 1/20/14.
  */
+var mySettings = window.localStorage;
+
+var exchanges = [
+    {'name' : 'bitstamp', 'url' : 'https://www.bitstamp.net/api/ticker/'},
+    {'name' : 'coinbase', 'url' : 'https://coinbase.com/api/v1/prices/spot_rate'},
+    {'name' : 'localbitcoins', 'url' : 'https://localbitcoins.com/bitcoinaverage/ticker-all-currencies/'},
+    {'name' : 'mtgox', 'url' : 'https://data.mtgox.com/api/2/BTCUSD/money/ticker_fast'}
+];
+
 function onLoad(){
     document.addEventListener("deviceready", function(){
+        if(mySettings.getItem("ex-default") === null)
+            mySettings.setItem("ex-default", "coinbase");
+
         document.addEventListener("resume", getData, false);
+
+        var Fetcher = window.plugins.backgroundFetch;
+
+        // Your background-fetch handler.
+        var fetchCallback = function() {
+            getData();
+            Fetcher.finish();
+        }
+        Fetcher.configure(fetchCallback);
+
     });
 };
 
@@ -11,14 +33,26 @@ $(document).on('pageinit', '#home', function(){
     getData();
 });
 
+$(document).on('pageinit', '#settings', function(){
+    var exdefault = mySettings.getItem("ex-default");
+    var isChecked = '';
+
+    exchanges.forEach(function(exchange){
+        if(exchange.name === exdefault)
+            isChecked = 'checked="checked"';
+        else
+            isChecked = '';
+        $('fieldset').append('<input type="radio" name="radio-choice" id="' + exchange.name + '" value="' + exchange.name + '" ' + isChecked + '" onClick="setDefault(\'' + exchange.name +  '\')" /><label for="' + exchange.name + '">' + exchange.name +'</label>');
+    });
+    $("div").trigger('create');
+});
+
+function setDefault(exchangeName){
+    mySettings.setItem('ex-default',exchangeName);
+};
+
 function getData(){
     $("#ex-list").text('');
-    var exchanges = [
-        {'name' : 'bitstamp', 'url' : 'https://www.bitstamp.net/api/ticker/'},
-        {'name' : 'coinbase', 'url' : 'https://coinbase.com/api/v1/prices/spot_rate'},
-        {'name' : 'localbitcoins', 'url' : 'https://localbitcoins.com/bitcoinaverage/ticker-all-currencies/'},
-        {'name' : 'mtgox', 'url' : 'https://data.mtgox.com/api/2/BTCUSD/money/ticker_fast'}
-    ];
 
     var currentdate = new Date();
     var datetime = "Synced: "
@@ -62,5 +96,8 @@ var ajax = {
                 break;
         }
         $("#" + myName).text(accounting.formatMoney(amount));
+
+        if(myName === mySettings.getItem("ex-default") && amount > 0)
+            window.plugins.pushNotification.setApplicationIconBadgeNumber(function(){}, function(){}, parseInt(amount));
     }
 }

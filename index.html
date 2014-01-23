@@ -11,12 +11,14 @@
         <script src="js/jquery.mobile-1.4.0.min.js"></script>
         <script src="js/accounting.min.js"></script>
         <script src="cordova.js"></script>
+        <script src="js/PushNotification.js"></script>
         <script src="js/myScript.js"></script>
         <title>BTCprices</title>
     </head>
     <body id="body" onload="onLoad()">
     <div data-role="page" id="home">
         <div data-theme="a" data-role="header">
+            <a href="#settings" data-icon="gear" data-iconpos="notext" data-transition="slide">settings</a>
             <h3>
                 BTC prices
             </h3>
@@ -54,6 +56,22 @@
         </div>
         <div data-role="footer" data-position="fixed">
             <h4>&copy;2014</h4>
+        </div>
+    </div>
+
+    <div data-role="page" id="settings">
+        <div data-role="header">
+            <a href="#" data-icon="back" data-rel="back" title=" back">Back</a>
+            <h3>Settings</h3>
+        </div>
+        <div data-role="content">
+            <fieldset data-role="controlgroup">
+                <legend>Select default exchange</legend>
+            </fieldset>
+
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h4><a href="#about" data-transition="slide">U like? Donate!</a></h4>
         </div>
     </div>
     </body>

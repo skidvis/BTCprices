@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e4ba79d-d16f-40c1-afbe-dd078a1011ff" name="Default" comment="">
+    <list default="true" id="6e4ba79d-d16f-40c1-afbe-dd078a1011ff" name="Default" comment="Moved about button to top.&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/PushNotification.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/myScript.js" afterPath="$PROJECT_DIR$/js/myScript.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="www.iws" />
@@ -26,10 +29,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="148" selection-start="235" selection-end="280" vertical-scroll-proportion="0.08038585" vertical-offset="0" max-vertical-offset="990">
+            <state line="67" column="45" selection-start="3074" selection-end="3074" vertical-scroll-proportion="-29.5" vertical-offset="297" max-vertical-offset="1260">
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -50,12 +53,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myScript.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="myScript.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/myScript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="60" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035">
+            <state line="43" column="27" selection-start="1329" selection-end="1329" vertical-scroll-proportion="0.65148306" vertical-offset="0" max-vertical-offset="1590">
               <folding>
-                <element signature="n#!!doc;n#onLoad#0" expanded="false" />
+                <element signature="e#0#41#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -75,8 +78,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/css/myStyle.css" />
-        <option value="$PROJECT_DIR$/js/myScript.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/myScript.js" />
       </list>
     </option>
   </component>
@@ -318,7 +321,11 @@
       <created>1390431362062</created>
       <updated>1390431362062</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Moved about button to top.">
+      <created>1390431897739</created>
+      <updated>1390431897739</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -372,7 +379,8 @@
     <MESSAGE value="Preloaded list.&#10;" />
     <MESSAGE value="Added bitcoin donation image/address to About page." />
     <MESSAGE value="Added link to zimbitcoins.com&#10;made bitcoin text resize." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added link to zimbitcoins.com&#10;made bitcoin text resize." />
+    <MESSAGE value="Moved about button to top." />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved about button to top." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -402,7 +410,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="8" selection-start="287" selection-end="287" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
           <folding>
-            <element signature="n#!!doc;n#onLoad#0" expanded="false" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -431,7 +439,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="8" selection-start="287" selection-end="287" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
           <folding>
-            <element signature="n#!!doc;n#onLoad#0" expanded="false" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -460,7 +468,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="0" selection-start="133" selection-end="133" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="825">
           <folding>
-            <element signature="n#!!doc;n#onLoad#0" expanded="false" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -482,7 +490,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="0" selection-start="1344" selection-end="1344" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
           <folding>
-            <element signature="n#!!doc;n#onLoad#0" expanded="false" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -504,7 +512,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="1" selection-start="2024" selection-end="2024" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
           <folding>
-            <element signature="n#!!doc;n#onLoad#0" expanded="false" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -521,24 +529,31 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1815" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/myScript.js">
+    <entry file="file://$PROJECT_DIR$/js/PushNotification.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="60" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035">
-          <folding>
-            <element signature="n#!!doc;n#onLoad#0" expanded="false" />
-          </folding>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="148" selection-start="235" selection-end="280" vertical-scroll-proportion="0.08038585" vertical-offset="0" max-vertical-offset="990">
+        <state line="67" column="45" selection-start="3074" selection-end="3074" vertical-scroll-proportion="-29.5" vertical-offset="297" max-vertical-offset="1260">
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#1;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/myScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="27" selection-start="1329" selection-end="1329" vertical-scroll-proportion="0.65148306" vertical-offset="0" max-vertical-offset="1590">
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>

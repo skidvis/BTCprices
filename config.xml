@@ -12,4 +12,7 @@
     <feature name="InAppBrowser">
         <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
+    <feature name="PushNotification">
+        <param name="ios-package" value="PushNotification" />
+    </feature>
 </widget>
