@@ -33,6 +33,10 @@ $(document).on('pageinit', '#home', function(){
     getData();
 });
 
+$(document).on('pageinit', '#about', function(){
+    $(".footerText").text('&copy;2014 IceGhost');
+})
+
 $(document).on('pageinit', '#settings', function(){
     var exdefault = mySettings.getItem("ex-default");
     var isChecked = '';
@@ -45,10 +49,13 @@ $(document).on('pageinit', '#settings', function(){
         $('fieldset').append('<input type="radio" name="radio-choice" id="' + exchange.name + '" value="' + exchange.name + '" ' + isChecked + '" onClick="setDefault(\'' + exchange.name +  '\')" /><label for="' + exchange.name + '">' + exchange.name +'</label>');
     });
     $("div").trigger('create');
+
+    $(".footerText").text('<a href="#about" data-transition="slide">U like? Donate!</a>');
 });
 
 function setDefault(exchangeName){
     mySettings.setItem('ex-default',exchangeName);
+    getData();
 };
 
 function getData(){
@@ -59,7 +66,7 @@ function getData(){
         + currentdate.getHours() + ":"
         + currentdate.getMinutes() + ":"
         + currentdate.getSeconds();
-    $("#myTime").text(datetime);
+    $(".footerText").text(datetime);
 
     exchanges.forEach(function(exchange){
         $('#ex-list').append('<li><h3>' + exchange.name + '</h3><span id="' + exchange.name +'" class="ui-li-count">Loading</span></li>');

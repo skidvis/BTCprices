@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e4ba79d-d16f-40c1-afbe-dd078a1011ff" name="Default" comment="Moved about button to top.&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/PushNotification.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
+    <list default="true" id="6e4ba79d-d16f-40c1-afbe-dd078a1011ff" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/myScript.js" afterPath="$PROJECT_DIR$/js/myScript.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -32,7 +30,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="45" selection-start="3074" selection-end="3074" vertical-scroll-proportion="-29.5" vertical-offset="297" max-vertical-offset="1260">
+            <state line="57" column="33" selection-start="2764" selection-end="2764" vertical-scroll-proportion="-35.625" vertical-offset="0" max-vertical-offset="1245">
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -56,7 +54,7 @@
       <file leaf-file-name="myScript.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/myScript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="27" selection-start="1329" selection-end="1329" vertical-scroll-proportion="0.65148306" vertical-offset="0" max-vertical-offset="1590">
+            <state line="30" column="0" selection-start="962" selection-end="962" vertical-scroll-proportion="0.39724576" vertical-offset="45" max-vertical-offset="1695">
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
               </folding>
@@ -325,7 +323,11 @@
       <created>1390431897739</created>
       <updated>1390431897739</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added Settings page">
+      <created>1390438977793</created>
+      <updated>1390438977794</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -380,7 +382,8 @@
     <MESSAGE value="Added bitcoin donation image/address to About page." />
     <MESSAGE value="Added link to zimbitcoins.com&#10;made bitcoin text resize." />
     <MESSAGE value="Moved about button to top." />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved about button to top." />
+    <MESSAGE value="Added Settings page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Settings page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -538,7 +541,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="45" selection-start="3074" selection-end="3074" vertical-scroll-proportion="-29.5" vertical-offset="297" max-vertical-offset="1260">
+        <state line="57" column="33" selection-start="2764" selection-end="2764" vertical-scroll-proportion="-35.625" vertical-offset="0" max-vertical-offset="1245">
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -551,7 +554,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/myScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="27" selection-start="1329" selection-end="1329" vertical-scroll-proportion="0.65148306" vertical-offset="0" max-vertical-offset="1590">
+        <state line="30" column="0" selection-start="962" selection-end="962" vertical-scroll-proportion="0.39724576" vertical-offset="45" max-vertical-offset="1695">
           <folding>
             <element signature="e#0#41#0" expanded="false" />
           </folding>
