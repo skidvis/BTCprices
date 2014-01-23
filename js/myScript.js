@@ -13,7 +13,6 @@ var exchanges = [
 
 $(document).ready(function(){
     document.addEventListener("deviceready", function(){
-        console.log("test");
         if(mySettings.getItem("ex-default") === null){
             mySettings.setItem("ex-default", "coinbase");
         }
@@ -21,22 +20,13 @@ $(document).ready(function(){
         document.addEventListener("resume", getData, false);
 
         var Fetcher = window.plugins.backgroundFetch;
-
-        // Your background-fetch handler.
-        var fetchCallback = function() {
-            getDataSingle();
-            Fetcher.finish();
-        };
-        Fetcher.configure(fetchCallback);
+        Fetcher.configure(getDataSingle);
+        Fetcher.finish();
     });
 });
 
 $(document).on('pageinit', '#home', function(){
     getData();
-});
-
-$(document).on('pageinit', '#about', function(){
-
 });
 
 $(document).on('pageinit', '#settings', function(){
@@ -48,8 +38,6 @@ $(document).on('pageinit', '#settings', function(){
         $('fieldset').append('<input type="radio" name="radio-choice" id="' + exchange.name + '" value="' + exchange.name + '" ' + isChecked + '" onClick="setDefault(\'' + exchange.name +  '\')" /><label for="' + exchange.name + '">' + exchange.name +'</label>');
     });
     $("div").trigger('create');
-
-    //$(".footerText").innerHTML('<a href="#about" data-transition="slide">U like? Donate!</a>');
 });
 
 function setDefault(exchangeName){
@@ -61,10 +49,10 @@ function getData(){
     $("#ex-list").text('');
 
     var currentdate = new Date();
-    syncTime = "Synced: "
-        + currentdate.getHours() + ":"
-        + currentdate.getMinutes() + ":"
-        + currentdate.getSeconds();
+    syncTime = "Last Sync: "
+        + pad(currentdate.getHours(), 2) + ":"
+        + pad(currentdate.getMinutes(), 2) + ":"
+        + pad(currentdate.getSeconds(), 2);
     $(".footerText").text(syncTime);
 
     exchanges.forEach(function(exchange){
@@ -98,6 +86,7 @@ function getJSON(exchange){
 }
 
 function setIconNumber(amount){
+    var mytime = new Date();
     window.plugins.pushNotification.setApplicationIconBadgeNumber(function(){}, function(){}, parseInt(amount));
 }
 
@@ -117,9 +106,15 @@ function findAmount(myName, result){
             amount = result.ask;
             break;
     }
+
     $("#" + myName).text(accounting.formatMoney(amount));
 
     if(myName === mySettings.getItem("ex-default") && amount > 0){
         setIconNumber(amount);
     }
+}
+
+function pad (str, max) {
+    str = str.toString();
+    return str.length < max ? pad("0" + str, max) : str;
 }
