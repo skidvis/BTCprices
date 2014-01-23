@@ -2,6 +2,7 @@
  * Created by skidvis on 1/20/14.
  */
 var mySettings = window.localStorage;
+var syncTime;
 
 var exchanges = [
     {'name' : 'bitstamp', 'url' : 'https://www.bitstamp.net/api/ticker/'},
@@ -12,6 +13,7 @@ var exchanges = [
 
 function onLoad(){
     document.addEventListener("deviceready", function(){
+        $('#footerText').text(mySettings.getItem('ex-default') + 'poo');
         if(mySettings.getItem("ex-default") === null)
             mySettings.setItem("ex-default", "coinbase");
 
@@ -25,7 +27,6 @@ function onLoad(){
             Fetcher.finish();
         }
         Fetcher.configure(fetchCallback);
-
     });
 };
 
@@ -34,7 +35,7 @@ $(document).on('pageinit', '#home', function(){
 });
 
 $(document).on('pageinit', '#about', function(){
-    $(".footerText").text('&copy;2014 IceGhost');
+    //$(".footerText").innerHTML('&copy;2014 IceGhost');
 })
 
 $(document).on('pageinit', '#settings', function(){
@@ -50,7 +51,7 @@ $(document).on('pageinit', '#settings', function(){
     });
     $("div").trigger('create');
 
-    $(".footerText").text('<a href="#about" data-transition="slide">U like? Donate!</a>');
+    //$(".footerText").innerHTML('<a href="#about" data-transition="slide">U like? Donate!</a>');
 });
 
 function setDefault(exchangeName){
@@ -62,11 +63,11 @@ function getData(){
     $("#ex-list").text('');
 
     var currentdate = new Date();
-    var datetime = "Synced: "
+    syncTime = "Synced: "
         + currentdate.getHours() + ":"
         + currentdate.getMinutes() + ":"
         + currentdate.getSeconds();
-    $(".footerText").text(datetime);
+    //$(".footerText").text(syncTime);
 
     exchanges.forEach(function(exchange){
         $('#ex-list').append('<li><h3>' + exchange.name + '</h3><span id="' + exchange.name +'" class="ui-li-count">Loading</span></li>');
