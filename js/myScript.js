@@ -11,11 +11,12 @@ var exchanges = [
     {'name' : 'mtgox', 'url' : 'https://data.mtgox.com/api/2/BTCUSD/money/ticker_fast'}
 ];
 
-function onLoad(){
+$(document).ready(function(){
     document.addEventListener("deviceready", function(){
-        $('#footerText').text(mySettings.getItem('ex-default') + 'poo');
-        if(mySettings.getItem("ex-default") === null)
+        console.log("test");
+        if(mySettings.getItem("ex-default") === null){
             mySettings.setItem("ex-default", "coinbase");
+        }
 
         document.addEventListener("resume", getData, false);
 
@@ -23,30 +24,27 @@ function onLoad(){
 
         // Your background-fetch handler.
         var fetchCallback = function() {
-            getData();
+            getDataSingle();
             Fetcher.finish();
-        }
+        };
         Fetcher.configure(fetchCallback);
     });
-};
+});
 
 $(document).on('pageinit', '#home', function(){
     getData();
 });
 
 $(document).on('pageinit', '#about', function(){
-    //$(".footerText").innerHTML('&copy;2014 IceGhost');
-})
+
+});
 
 $(document).on('pageinit', '#settings', function(){
     var exdefault = mySettings.getItem("ex-default");
     var isChecked = '';
 
     exchanges.forEach(function(exchange){
-        if(exchange.name === exdefault)
-            isChecked = 'checked="checked"';
-        else
-            isChecked = '';
+        isChecked = exchange.name === exdefault ? 'checked="checked"' : '';
         $('fieldset').append('<input type="radio" name="radio-choice" id="' + exchange.name + '" value="' + exchange.name + '" ' + isChecked + '" onClick="setDefault(\'' + exchange.name +  '\')" /><label for="' + exchange.name + '">' + exchange.name +'</label>');
     });
     $("div").trigger('create');
@@ -57,7 +55,7 @@ $(document).on('pageinit', '#settings', function(){
 function setDefault(exchangeName){
     mySettings.setItem('ex-default',exchangeName);
     getData();
-};
+}
 
 function getData(){
     $("#ex-list").text('');
@@ -67,45 +65,61 @@ function getData(){
         + currentdate.getHours() + ":"
         + currentdate.getMinutes() + ":"
         + currentdate.getSeconds();
-    //$(".footerText").text(syncTime);
+    $(".footerText").text(syncTime);
 
     exchanges.forEach(function(exchange){
         $('#ex-list').append('<li><h3>' + exchange.name + '</h3><span id="' + exchange.name +'" class="ui-li-count">Loading</span></li>');
         $('#ex-list').listview('refresh');
 
-        $.ajax({
-            url: 'http://iceghost.com/igExchange.aspx?url=' + exchange.url ,
-            dataType: "json",
-            async: true,
-            success: function (result) {
-                ajax.parseJSONP(exchange.name, result);
-            },
-            error: function (request,error) {
-                $("#" + exchange.name).text("Unavailable");
-            }
-        });
+        getJSON(exchange);
     });
-};
-var ajax = {
-    parseJSONP:function(myName, result){
-        var amount = 0;
-        switch(myName){
-            case 'coinbase':
-                amount = result.amount;
-                break;
-            case 'mtgox':
-                amount = result.data.last_local.value;
-                break;
-            case 'localbitcoins':
-                amount = result.USD.avg_1h;
-                break;
-            case 'bitstamp':
-                amount = result.ask;
-                break;
-        }
-        $("#" + myName).text(accounting.formatMoney(amount));
+}
 
-        if(myName === mySettings.getItem("ex-default") && amount > 0)
-            window.plugins.pushNotification.setApplicationIconBadgeNumber(function(){}, function(){}, parseInt(amount));
+function getDataSingle(){
+    exchanges.forEach(function(exchange){
+       if(exchange.name === mySettings.getItem("ex-default")){
+           getJSON(exchange);
+       }
+    });
+}
+
+function getJSON(exchange){
+    $.ajax({
+        url: 'http://iceghost.com/igExchange.aspx?url=' + exchange.url ,
+        dataType: "json",
+        async: true,
+        success: function (result) {
+            findAmount(exchange.name, result);
+        },
+        error: function (request,error) {
+            $("#" + exchange.name).text("Unavailable");
+        }
+    });
+}
+
+function setIconNumber(amount){
+    window.plugins.pushNotification.setApplicationIconBadgeNumber(function(){}, function(){}, parseInt(amount));
+}
+
+function findAmount(myName, result){
+    var amount = 0;
+    switch(myName){
+        case 'coinbase':
+            amount = result.amount;
+            break;
+        case 'mtgox':
+            amount = result.data.last_local.value;
+            break;
+        case 'localbitcoins':
+            amount = result.USD.avg_1h;
+            break;
+        case 'bitstamp':
+            amount = result.ask;
+            break;
+    }
+    $("#" + myName).text(accounting.formatMoney(amount));
+
+    if(myName === mySettings.getItem("ex-default") && amount > 0){
+        setIconNumber(amount);
     }
 }

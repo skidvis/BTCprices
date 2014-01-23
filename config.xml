@@ -15,4 +15,10 @@
     <feature name="PushNotification">
         <param name="ios-package" value="PushNotification" />
     </feature>
+    <feature name="Notification">
+        <param name="ios-package" value="CDVNotification" />
+    </feature>
+    <feature name="Console">
+        <param name="ios-package" value="CDVLogger" />
+    </feature>
 </widget>
